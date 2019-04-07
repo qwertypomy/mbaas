@@ -10,3 +10,6 @@ const APP_KEY = Platform.select({
 });
 
 Backendless.initApp(APP_ID, APP_KEY);
+
+export const apiUrl =
+  'https://api.backendless.com/B17B73CF-BF02-64F7-FFF1-F848B2D1A400/39AD7095-0540-B828-FFDF-732A30BCAF00';
