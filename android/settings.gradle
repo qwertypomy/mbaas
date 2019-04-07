@@ -1,0 +1,3 @@
+rootProject.name = 'mbaas'
+
+include ':app'
