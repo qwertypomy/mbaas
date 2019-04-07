@@ -9,6 +9,7 @@
   "dependencies": {
     "backendless": "^5.2.9",
     "backendless-react-native": "^0.0.16",
+    "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.3"
   },
