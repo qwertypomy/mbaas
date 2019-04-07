@@ -14,6 +14,8 @@ import {
   FooterTab
 } from 'native-base';
 
+import FormValidator from '../../utils/FormValidator';
+
 class SignupScreenView extends Component {
   render() {
     const {
@@ -30,6 +32,15 @@ class SignupScreenView extends Component {
       loading,
       error
     } = this.props;
+
+    const {
+      invalidName,
+      invalidEmail,
+      invalidPassword,
+      invalidAge,
+      invalidForm
+    } = new FormValidator(name, email, password, age);
+
     return (
       <Container>
         <Content>
@@ -41,14 +52,14 @@ class SignupScreenView extends Component {
             </Text>
           )}
           <Form>
-            <Item>
+            <Item error={invalidName}>
               <Input
                 placeholder="Name"
                 value={name}
                 onChangeText={value => onInputChange('name', value)}
               />
             </Item>
-            <Item>
+            <Item error={invalidEmail}>
               <Input
                 placeholder="Email"
                 value={email}
@@ -58,7 +69,7 @@ class SignupScreenView extends Component {
                 textContentType="emailAddress"
               />
             </Item>
-            <Item>
+            <Item error={invalidPassword}>
               <Input
                 placeholder="Password"
                 value={password}
@@ -66,7 +77,7 @@ class SignupScreenView extends Component {
                 secureTextEntry
               />
             </Item>
-            <Item>
+            <Item error={invalidAge}>
               <Input
                 placeholder="Age"
                 value={age ? `${age}` : ''}
@@ -108,7 +119,7 @@ class SignupScreenView extends Component {
         </Content>
         <Footer>
           <FooterTab>
-            <Button full onPress={onSubmit} disabled={loading}>
+            <Button full onPress={onSubmit} disabled={loading || invalidForm}>
               <Text style={{ fontSize: 15 }}>Sign Up</Text>
             </Button>
           </FooterTab>

@@ -20,9 +20,9 @@ class SignupScreenContainer extends Component {
   });
 
   state = {
-    name: '',
-    email: '',
-    password: '',
+    name: null,
+    email: null,
+    password: null,
     age: null,
     gender: 'Man',
     country: 'Ukraine'
